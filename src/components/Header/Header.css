@@ -1,0 +1,79 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(15, 15, 15);
+    z-index: 5;
+    min-height: 56px;
+    width: 100%;
+}
+
+
+.base-links-container {
+    box-sizing: border-box;
+    display: flex;
+    width: 100%;
+    padding: 3px 40px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.home-page-container {
+    display: flex;
+    align-items: center;
+}
+
+.home-page-container a {
+    color: #a79883;
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-decoration: none;
+    transition: color 0.6s ease, background-color 0.9s ease;
+}
+
+.home-page-container a:hover {
+    color: #ffffff;
+}
+
+.base-links {
+    display: flex;
+    align-items: center;
+}
+
+.base-links ul {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.base-links a {
+    color: #B8A890;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-decoration: none;
+    transition: color 0.6s ease, background-color 0.9s ease;
+}
+
+.base-links a:hover {
+    color: #f5f5f5;
+}
+
+
+
+/* Стиль для автозаполненных полей */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    -webkit-background-clip: text; /* Убирает стандартный фон */
+    font-size: 18px !important; /* Задаем одинаковый размер шрифта для всех состояний */
+    -webkit-text-fill-color: #a79883 !important; /* Цвет текста */
+    -webkit-box-shadow: 0 0 0 1000px rgb(39, 39, 39) inset !important; /* Цвет фона */
+    caret-color: #ffffff !important; /* Цвет курсора */
+    transition: background-color 5000s ease-in-out 0s; /* Сохраняем цвет фона при автозаполнении */
+}
