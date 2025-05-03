@@ -1,0 +1,161 @@
+:root {
+    --index: calc(1vh + 1vw);
+    --swiper-theme-color: #b8a890 !important;
+    --swiper-navigation-sides-offset: 50px;
+
+}
+
+#root {
+    display: flex;
+    max-width: 100%;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+  }
+
+header {
+    background-color: rgba(15, 15, 15, 0.6);
+    z-index: 5;
+}
+
+
+/* СТИЛИ ПЕРВОГО БЛОКА*/
+.hero-block {
+    display: flex;
+    min-height: 100vh;
+    height: 100vh;
+    width: 100%;
+    /* background-image: url('../images/coffee_homepage2.jpg'); */
+    object-fit: cover;
+    background-position: end;
+    background-repeat: no-repeat;
+    position: relative; 
+    transition: filter 0.4s ease;
+    margin-top: -56px; 
+    padding-top: 56px; 
+}
+
+.hero-block::after {
+    content: '';
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin-top: -56px; 
+    padding-top: 56px; 
+    background-color: rgb(0, 0, 0, 0.8);
+    z-index: 1;
+}
+
+.hero-block__info {
+    position: absolute;
+    filter: brightness(70%);
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    left: 60%;
+    top: 30%;
+    display: flex;
+    max-width: 350px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: rgba(15, 15, 15, 0.2);
+    z-index: 2;
+    padding: 10px 15px;
+    pointer-events: all;
+    transition: left 0.4s ease, transform 0.4s ease;
+
+}
+
+.hero-block__info h2{
+    font-size: calc(var(--index) * 0.9);
+}
+
+.hero-block__info p{
+    font-size: calc(var(--index) * 0.8);
+}
+
+.hero-block__info a{
+    color: black;
+    text-decoration: none;
+    padding: 5px 60px;
+    background-color: #b8a890;
+    text-align: center;
+    border-radius: 4px;
+    font-size: calc(var(--index) * 0.8);
+    transition: color 0.6s ease, background-color 0.6s ease;
+
+}
+
+.hero-block__info a:hover{
+    color: white;
+    background-color: #887b67;
+}
+
+/* Блок с продуктами*/
+.swiper-block {
+    display: flex;
+    position: relative;
+    height: 100vh;
+    min-height: 80vh;
+    width: 100%;
+    max-width: 100%;
+    background-color: rgb(15, 15, 15);
+    overflow: hidden;
+}
+
+
+.swiper_block__preview {
+    display: flex;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: black;
+    background-color: #b8a890;
+    margin: 0;
+    padding: 14px 30px;
+    font-size: calc(var(--index) * 0.8);
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.swiper_block__preview::after {
+    content: '';
+    position: absolute;
+    right: -20px;
+    top: 0;
+    width: 40px;
+    height: 100%;
+    background: inherit; 
+    transform: skewX(-25deg);
+}
+
+/* Основной контейнер Swiper */
+.swiper {
+  width: 100%;
+  overflow: hidden; /* Важно! */
+}
+
+/* Слайды */
+.swiper-slide {
+  width: auto !important; /* Или фиксированная ширина */
+  box-sizing: border-box;
+}
+
+.block-swiper-item {
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
