@@ -8,6 +8,7 @@ import ProtectedRoute from './ProtectedRoute';
 import HomePage from './pages/HomePage/HomePage';
 import MenuPage from './pages/MenuPage/MenuPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
+import LoginPage from './pages/LoginPage/LoginPage';
 
 import './App.css'
 
@@ -29,6 +30,8 @@ function App() {
                 <ProfilePage />
               </ProtectedRoute>
             } />
+
+            <Route path='/login' element={<LoginPage />} />
           </Routes>
 
           <Footer />

@@ -1,8 +1,21 @@
-header {
+.dark-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: rgba(15, 15, 15);
+    border-bottom: #a79883 solid 0.5px;
+    z-index: 5;
+    min-height: 56px;
+    width: 100%;
+}
+
+
+.transparent-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(15, 15, 15, 0.6);
+    border-bottom: none;
     z-index: 5;
     min-height: 56px;
     width: 100%;

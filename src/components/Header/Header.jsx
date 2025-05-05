@@ -7,11 +7,14 @@ import { AuthContext } from "../../AuthContext";
 
 import "./Header.css";
 
+
+
 function Header() {
     const [isOpen, setIsOpen] = useState(false);
     const { width } = useWindowResize();
     const location = useLocation();
     const { user, loading } = useContext(AuthContext);
+    const { pathname } = useLocation();
 
 
     useEffect(() => {setIsOpen(false);}, [location.pathname]);
@@ -25,7 +28,7 @@ function Header() {
 
     
     return (
-        <header>
+        <header className={pathname === "/" ? "transparent-header" : "dark-header"}>
             <div className="base-links-container">
                 <div className='home-page-container'>
                     <Link to='/'>Головна</Link>
