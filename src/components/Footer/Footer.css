@@ -1,0 +1,68 @@
+/* Стили для footer */
+footer {
+    display: flex; /* Flexbox для выравнивания содержимого */
+    width: 100%;
+    justify-content: space-between;
+    border-top: #a79883 solid 0.5px; /* Граница сверху */
+    background-color: rgba(15, 15, 15); /* Цвет фона */
+    color: #a79883; /* Цвет текста */
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    padding: 5px 5px;
+    box-sizing: border-box;
+    margin-top: auto; /* Это гарантирует, что футер всегда будет внизу */
+}
+
+
+.footer-container {
+    display: flex; /* Flexbox для выравнивания содержимого */
+    width: 100%;
+    align-items: center; /* Вертикальное выравнивание */
+    justify-content: space-between; /* Пространство между блоками */
+    max-width: 1200px; /* Максимальная ширина */
+    margin: 0 auto; /* Центрирование footer */
+}
+
+
+.footer-image-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.footer-image-container img {
+    max-height: 24px; /* Ограничение высоты изображения */
+    cursor: pointer;
+}
+
+
+.footer-content-container {
+    text-align: right; /* Текст выравнивается справа */
+}
+
+
+.footer-content-container a {
+    color: #4D4631; /* Цвет ссылок */
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
+
+.footer-content-container a:hover {
+    text-decoration: underline; /* Подчеркивание при наведении */
+}
+
+
+@media (max-width: 500px) {
+    .footer-image-container {
+        font-size: calc(var(--index) * 0.9);
+    }
+
+    .footer-content-container {
+        font-size: calc(var(--index) * 0.9);
+    }
+}
