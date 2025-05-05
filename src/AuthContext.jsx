@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
     const [error, setError] = useState(null);
 
     const getCSRFToken = () => {
-        const cookies = document.cookie.split('; ');
+        const cookies = document.cookie.split(';');
         const csrfCookie = cookies.find(cookie => cookie.trim().startsWith('csrftoken='));
         return csrfCookie ? csrfCookie.split('=')[1] : '';
     }
