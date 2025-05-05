@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import { AuthProvider } from './AuthContext';
 import HomePage from './pages/HomePage/HomePage';
 import MenuPage from './pages/MenuPage/MenuPage';
 
@@ -14,16 +15,18 @@ function App() {
 
   return (
     <>
-      <Router>
-        <Header/>
+      <AuthProvider>
+        <Router>
+          <Header/>
 
-        <Routes>
-          <Route path='/' element={<HomePage />} />
-          <Route path='/menu' element={<MenuPage />} />
-        </Routes>
+          <Routes>
+            <Route path='/' element={<HomePage />} />
+            <Route path='/menu' element={<MenuPage />} />
+          </Routes>
 
-        <Footer />
-      </Router>
+          <Footer />
+        </Router>
+      </AuthProvider>
     </>
   )
 }
