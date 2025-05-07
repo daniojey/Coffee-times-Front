@@ -1,8 +1,10 @@
 import React from "react";
 
+import CoffeehouseImage from "../../../assets/caffee_bar.jpg";
+
 
 const imageMap = {
-
+    CoffehouseImage: CoffeehouseImage
 }
 
 const DynamicImages = ({

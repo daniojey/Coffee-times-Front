@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 import { AuthContext } from "../../AuthContext";
 import GoggleIcon from "../../components/UI/icons/GoggleIcon/GoggleIcon";
@@ -31,7 +32,7 @@ function LoginPage() {
             <div className='form-container'>
                 <form onSubmit={handleSubmit}>
                     <h3>Welcome Back!</h3>
-                    <p className='second-title'>Don`n have account yet? <a className='signuplink'>Sign Up</a></p>
+                    <p className='second-title'>Don`n have account yet? <Link className='signuplink' to="/registration">Sign Up</Link></p>
 
                     <p className="form-label">
                         <input 
@@ -68,7 +69,7 @@ function LoginPage() {
                 </form>
             </div>
 
-            { error && <div className="error-popup">{ error }</div>}
+            {/* { error && <div className="error-popup">{ error }</div>} */}
         </div>
     )
 }

@@ -83,8 +83,38 @@ export const AuthProvider = ({ children }) => {
           }
     };
 
+    const registration = async (username, phone, password1, password2) => {
+        try {
+            await api.post('/api/v1/register/', {
+                username,
+                phone,
+                password1,
+                password2
+            }, {
+                withCredentials: true,
+                headers: {
+                    'X-CSRFToken': getCSRFToken(), // Функция для получения токена
+                  },
+            })
+
+            const userResponse = await api.get('/api/v1/check_user/', {
+                withCredentials: true
+            });
+
+            setUser(userResponse.data.user);
+            return true
+            
+        } catch (err) {
+            console.error('Ошибка регистрации:', err);
+            setError(err);
+            return false
+        } finally {
+            setIsLogin(false)
+        }
+    }
+
     return (
-        <AuthContext.Provider value={{ user, loading, login, logout, isLogin, error }}>
+        <AuthContext.Provider value={{ user, loading, login, registration, logout, isLogin, error }}>
             {loading ? <div className="Loading-container">Loading...</div> : children}
         </AuthContext.Provider>
     );
