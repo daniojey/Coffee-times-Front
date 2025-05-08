@@ -1,0 +1,335 @@
+header {
+    border-bottom: #a79883 solid 0.5px;
+}
+
+
+#datahouse {
+    display: none;
+}
+
+
+#root {
+    overflow-y: auto;
+}
+
+
+/* Базовый контейнер */
+.base-menu-container {
+    flex: 1;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+/* Стили для панели фильтров*/
+.filter-content {
+    box-sizing: border-box;
+    display: flex;
+    margin: 0px auto;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 900px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 0.1px solid rgb(255, 255, 255, 0.05);
+    border-top: 0.2px solid rgb(255, 255, 255, 0.1);
+    /* border: 1px solid #a79883;
+    box-shadow: 0px 0px 10px #a79883; */
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(23, 23, 23);
+    color: #a79883;
+}
+
+
+.filter-main-body {
+    display: flex;
+    gap: 10px;
+}
+
+
+.menu-form-content {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.form-section label{
+    color: #a79883;
+    font-size: calc(var(--index) * 0.9);
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+
+}
+
+
+.menu-form-content input[type=text] {
+    display: flex;
+    box-sizing: border-box;
+    max-width: 200px;
+    width: 100%;
+    font-size: 18px;
+    color: #a79883 !important;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 0px;
+    border: 1px solid #a79883;
+    background-color: rgb(39, 39, 39);
+}
+
+
+.menu-form-content input[type=text]::spelling-error {
+    text-decoration-line: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: #ff0000; /* Красная волнистая линия */
+    color: #a79883 !important; /* Попытка изменить цвет текста */
+}
+
+
+.menu-form-content select {
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 0;
+    font-size: 18px;
+    color: #a79883;
+    background-color: rgb(39, 39, 39);
+    border: 1px solid #a79883;
+}
+
+
+.menu-filter-btn {
+    width: 15%;
+    height: 100%;
+    padding: 13px 20px; /* Отступы внутри кнопки */
+    border-radius: 5px;
+    border: none; /* Убираем рамку */
+    background-color: #a79883; /* Цвет фона кнопки */
+    color: rgb(15, 15, 15); /* Цвет текста кнопки */
+    font-size: 18px; /* Размер шрифта */
+    cursor: pointer; /* Курсор при наведении */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    transition: background-color 0.6s ease, color 0.6s ease; /* Плавный переход */
+    margin-left: 10px;
+}
+
+
+.menu-filter-btn:hover {
+    background-color:  #585248;/* Цвет фона при наведении */
+    color:  #f5f5f5;/* Цвет текста при наведении */
+}
+
+
+/* Стили для блока с продуктами */
+.products-base-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); /* карточки будут автоматически занимать доступное место */
+    grid-gap: 10px 40px;
+    background-color: rgb(23, 23, 23);
+    color: #a79883; /* Цвет текста */
+    width: 100%;
+    max-width: 900px;
+    height: 100%;
+    margin: 20px auto;
+    border-radius: 5px;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 0.1px solid rgb(255, 255, 255, 0.05);
+    border-top: 0.2px solid rgb(255, 255, 255, 0.1);
+    transition: box-shadow 0.3s ease, border 0.3s ease; /* Плавный переход */
+}
+
+
+.product-link {
+    display: flex;
+    text-decoration: none;
+    width: 100%;
+    height: 90%;
+    border-radius: 10px;
+}
+
+
+.product {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    color: bisque;
+    max-width: 100%; /* позволяет карточкам уменьшаться по размеру */
+    width: 100%;
+    height: calc(var(--index) * 20); /* Высота карточки */
+    margin-bottom: 40px;
+    border: 1.5px solid black;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: black;
+    animation: scaleIn 0.4s ease-in-out;
+    animation-fill-mode: forwards;
+    transform: scale(0);
+}
+
+
+.product-image {
+    display: flex;
+    max-width: 100%;
+    height: 100%;
+}
+
+
+.product img{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: 0 0;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(0, 0, 0);
+}
+
+
+.product-context {
+    display: flex;
+    color: #b8a890;
+    position: absolute;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    height: 100%;
+    border-radius: 0px 10px 10px 0px;
+    width: 61%;
+    left: 40%;
+    background-color: rgb(0, 0, 0, 0.8);
+    box-sizing: border-box;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    transition: color 0.3s ease;
+}
+
+
+/* Стили пагинации */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    margin-top: auto; /* Это гарантирует, что футер всегда будет внизу */
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.pagination-button {
+    display: flex;
+    color: #a79883;
+    border: 0.5px solid #a79883;
+    transition: color 0.5s ease, background-color 0.5s ease, border 0.5s ease;
+
+    &:hover {
+        color: #f5f5f5;
+        background-color: #585248;
+        border: none;
+    }
+
+    &:disabled {
+        color: black;
+        background-color: #585248;
+    }
+}
+
+.pagination-button.active {
+    color: #585248;
+    background-color: #a79883;
+}
+
+
+@keyframes scaleIn {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* Медиа запросы для адаптивности*/
+@media (max-width: 900px) {
+    .products-base-container {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* карточки будут автоматически занимать доступное место */
+        grid-gap: 10px 20px;
+    }
+
+    .product-context {
+        font-size: calc(var(--index) * 0.9);
+    }
+    
+}
+
+
+@media (max-width: 550px) {
+    .menu-form-content {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .filter-main-body {
+        gap: calc(var(--index) * 2);
+    }
+
+    .form-section {
+        width: 100%;
+        
+    }
+
+    .form-section label {
+        font-size: calc(var(--index) * 1.5);
+    }
+    
+
+    .menu-filter-btn {
+        width: 200px;
+        margin-left: 0px;
+
+    }
+
+    .product-context {
+        font-size: calc(var(--index) * 0.8);
+        padding: 5px;
+    }
+
+    .products-base-container {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* карточки будут автоматически занимать доступное место */
+        grid-gap: 10px 20px;
+    }
+}
+
+@media (max-width: 440px) {
+    .filter-main-body {
+        flex-direction: column;
+        gap: calc(var(--index) * 1.3);
+    }
+}
