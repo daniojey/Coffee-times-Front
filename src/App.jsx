@@ -7,6 +7,7 @@ import { AuthProvider } from './AuthContext';
 import ProtectedRoute from './ProtectedRoute';
 import HomePage from './pages/HomePage/HomePage';
 import MenuPage from './pages/MenuPage/MenuPage';
+import SearchReservationPage from './pages/SearchReservationPage/SearchReservationPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
@@ -26,6 +27,8 @@ function App() {
           <Routes>
             <Route path='/' element={<HomePage />} />
             <Route path='/menu' element={<MenuPage />} />
+            <Route path='/search-reservations' element={<SearchReservationPage />} />
+
             <Route path='/profile' element={
               <ProtectedRoute>
                 <ProfilePage />
