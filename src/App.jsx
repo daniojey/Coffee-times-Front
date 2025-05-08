@@ -8,6 +8,7 @@ import ProtectedRoute from './ProtectedRoute';
 import HomePage from './pages/HomePage/HomePage';
 import MenuPage from './pages/MenuPage/MenuPage';
 import SearchReservationPage from './pages/SearchReservationPage/SearchReservationPage';
+import MapPage from './pages/MapPage/MapPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
@@ -28,6 +29,8 @@ function App() {
             <Route path='/' element={<HomePage />} />
             <Route path='/menu' element={<MenuPage />} />
             <Route path='/search-reservations' element={<SearchReservationPage />} />
+            <Route path='/map' element={<MapPage />} />
+
 
             <Route path='/profile' element={
               <ProtectedRoute>

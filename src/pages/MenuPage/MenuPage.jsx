@@ -212,9 +212,12 @@ function MenuPage() {
 
             <div className='products-base-container'>
                     {!state.loading && !state.error && (
-                        state.data.results.map(item => (
+                        state.data.results.map((item, index) => (
                             <Link className='product-link' key={item.id}>
-                                <div className='product'>
+                                <div 
+                                className='product'  
+                                style={{ animationDelay: `${index * 0.15}s` }}
+                                >
                                     <div className='product-image'>
                                         <img src={item.image_url}/>
                                     </div>

@@ -1,0 +1,385 @@
+.base-map-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1300px;
+    height: 85%; /* Высота на весь экран */
+    max-height: 760px;
+    width: 95vw;
+    border-radius: 10px;
+    background-color: rgb(23, 23, 23);
+    border: 0.1px solid rgb(255, 255, 255, 0.05);
+    border-top: 0.2px solid rgb(255, 255, 255, 0.1);
+    margin: 20px auto;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+
+.base-search-block {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: 100%;
+    margin-right: 20px;
+    background-color: rgb(15, 15, 15);
+    border: 0.1px solid #35312c;
+    border-radius: 10px;
+    overflow-y: auto;
+    transition: height 0.5s ease; /* Плавный переход */
+}
+
+
+/* Стили для блока с поиском */
+.search-container {
+    display: flex;
+    flex-direction: column;
+    height: 10%;
+    padding: 10px;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+
+.search-container h3 {
+    color: #a79883;
+    font-size: calc(var(--index) * 1);
+    margin: 0;
+    margin-bottom: 10px; /* Отступ снизу */
+    text-align: center; /* Центрируем заголовок */
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+
+#map-search-form {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+
+.search-container input {
+    display: flex;
+    width: 80%;
+    height: 36px;
+    padding: 10px; /* Отступы внутри поля ввода */
+    border-radius: 5px;
+    border: 1px solid #272319; /* Цвет рамки */
+    font-size: calc(var(--index) * 0.7); /* Размер шрифта */
+    box-sizing: border-box; /* Учитываем отступы в ширине */
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3); /* Тень для поля ввода */
+    background-color: rgb(39, 39, 39);
+    color: #a79883; /* Цвет текста */
+    transition: box-shadow 0.3s ease, border 0.3s ease; /* Плавный переход */
+}
+
+
+.search-container input:focus {
+    outline: none; /* Убираем обводку при фокусе */
+    border: 1px solid #a79883; /* Цвет рамки при фокусе */
+    box-shadow: 0px 3px 5px #a79883; /* Тень для поля ввода при фокусе */
+}
+
+
+#search-button {
+    width: 20%;
+    height: 36px;
+    padding: 10px; /* Отступы внутри кнопки */
+    border-radius: 5px;
+    margin-left: 5px;
+    border: none; /* Убираем рамку */
+    background-color: #a79883; /* Цвет фона кнопки */
+    color: rgb(15, 15, 15); /* Цвет текста кнопки */
+    font-size: calc(var(--index) * 0.8); /* Размер шрифта */
+    cursor: pointer; /* Курсор при наведении */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    transition: background-color 0.6s ease, color 0.6s ease; /* Плавный переход */
+}
+
+
+#search-button:hover {
+    background-color:  #585248;/* Цвет фона при наведении */
+    color:  #f5f5f5;/* Цвет текста при наведении */
+}
+
+/* Стили блока поиска */
+.search-coffeehouses {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.search-coffeehouses-title {
+    display: none;
+    color: #a79883;
+    font-size: calc(var(--index) * 1);
+    margin: 0;
+    margin-bottom: 10px; /* Отступ снизу */
+    text-align: start; /* Центрируем заголовок */
+    box-sizing: border-box;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    animation: fadeIn 0.8s ease;
+}
+
+.search-coffeehouses.active{
+    box-sizing: border-box;
+    padding: 20px 10px;
+
+    .search-coffeehouses-title{
+        display: flex;
+    }
+}
+
+
+/* Стили для блока рекомендаций */
+.recomend-coffeehouses{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+}
+
+
+.recomend-coffeehouses h3 {
+    color: #a79883;
+    font-size: calc(var(--index) * 1);
+    margin: 0;
+    margin-bottom: 10px; /* Отступ снизу */
+    text-align: start; /* Центрируем заголовок */
+    box-sizing: border-box;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+
+.recomend-item {
+    display: flex;
+    width: 100%;
+    color: #a79883;
+    padding: 10px 0px;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    border-top: 0.1px solid #35312c;
+    border-bottom: 0.1px solid #35312c;
+    transition: color 0.3s ease, opacity 0.5s ease-in-out; /* Плавный переход */
+    animation: fadeIn 0.5s ease-in-out; /* Анимация появления */
+    animation-fill-mode: forwards;
+    cursor: pointer; /* Курсор при наведении */
+}
+
+
+.recomend-item:hover {
+    color: #f5f5f5; /* Цвет текста при наведении */
+}
+
+
+.recomend-item__img {
+    background-color: #a79883;
+    width: 35%;
+    height: calc(var(--index) * 3.5);
+    border-radius: 10px;
+}
+
+
+.recomend-item__img img {
+    width: 100%;
+    height: calc(var(--index) * 3.5);
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+
+.recomend-item__info {
+    display: flex;
+    width: 65%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+.recomend-item__info__address {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+
+.recomend-item__info p {
+    font-size: calc(var(--index) * 0.7);
+    margin: 0;
+    margin-bottom: 5px; /* Отступ снизу */
+}
+
+
+/* Стили для карты */
+.map-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+
+.leaflet-container {
+    width: 100%;
+    height: 100%;
+}
+
+
+.leaflet-popup-content-wrapper {
+    display: flex;
+    color: #a79883 !important;
+    background-color: rgb(15, 15, 15) !important;
+    font-size: calc(var(--index) * 0.58) !important;
+    font-family: Roboto !important;
+    font-style: normal !important;
+    font-weight: 800 !important;
+    line-height: normal !important;
+}
+
+
+.leaflet-popup-close-button span{
+    color: #a79883 !important;
+    display: flex;
+    margin-top: 5px;
+}
+
+
+.leaflet-popup-tip{
+    color: black !important;
+    background-color: black !important;
+}
+
+
+.popup-link {
+    color: #585248 !important;
+    text-decoration: none;
+    font-size: calc(var(--index) * 0.65) !important;
+    font-family: Roboto !important;
+    font-style: normal !important;
+    font-weight: 800 !important;
+    line-height: normal !important;
+    display: flex;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    transition: color 0.5s ease, transform 0.3s ease; /* Плавный переход */
+}
+
+
+.popup-link:hover {
+    color: #a79883 !important;
+    transform: scale(1.05); /* Увеличение при наведении */
+}
+
+
+@keyframes fadeIn{
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes scaleIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    
+}
+
+
+/* Брейкпоинты */
+@media (max-width: 1050px) {
+    #map-search-form{
+        width: 60%;
+    }
+
+    .base-map-container {
+        flex-direction: column;
+        height: 100%;
+        max-height: 100%;
+        width: 95vw;
+    }
+    
+    .recomend-item__img {
+        height: calc(var(--index) * 8);
+    }
+
+    .recomend-item__img img {
+        height: calc(var(--index) * 8);
+    }
+
+    .base-search-block {
+        width: 100%;
+        height: 40%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .search-container {
+        height: 50%;
+    }
+
+    .map-container {
+        width: 100%;
+        height: 60%;
+    }
+}
+
+
+@media (max-width: 500px) {
+    .leaflet-popup-content-wrapper {
+        font-size: calc(var(--index) * 0.75) !important;
+    }
+
+    .popup-link {
+        font-size: calc(var(--index) * 0.75) !important;
+    }
+
+    #map-search-form{
+        width: 80%;
+    }
+
+    .recomend-item__img {
+        height: calc(var(--index) * 6);
+    }
+
+    .recomend-item__img img {
+        height: calc(var(--index) * 6);
+    }
+}
