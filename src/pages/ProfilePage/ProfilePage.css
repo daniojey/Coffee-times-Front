@@ -1,0 +1,221 @@
+.base-profile-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 86%;
+}
+
+
+.profile-titles {
+    margin: 10px 0px;
+    color: #a79883;
+    font-size: calc(var(--index) * 1);
+}
+
+
+.profile-block__left-side {
+    display: flex;
+    width: 50%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+    animation: fadeIn 0.5s ease;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+
+.profile-info-block {
+    display: flex;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    justify-content: space-between;
+    align-items: center;
+    height: 25%;
+    width: 90%;
+    flex-direction: column;
+    background-color: rgb(23, 23, 23);
+    margin-bottom: 20px;
+}
+
+
+.profile-logout-btn {
+    width: 65%;
+    max-width: 300px;
+    height: 36px;
+    padding: 10px; /* Отступы внутри кнопки */
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none; /* Убираем рамку */
+    background-color: #a79883; /* Цвет фона кнопки */
+    color: rgb(15, 15, 15); /* Цвет текста кнопки */
+    font-size: calc(var(--index) * 0.8); /* Размер шрифта */
+    cursor: pointer; /* Курсор при наведении */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    transition: background-color 0.6s ease, color 0.6s ease; /* Плавный переход */
+
+    &:hover {
+        color:  #f5f5f5;/* Цвет текста при наведении */
+        background-color:  #585248;/* Цвет фона при наведении */
+    }
+}
+
+
+.actual-reservations-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgb(23, 23, 23);
+    align-items: center;
+    height: 75%;
+    width: 90%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+.profile-block__right-side{
+    display: flex;
+    width: 50%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: start;
+    animation: fadeIn 0.5s ease;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+
+.user-reservations-block {
+    display: flex;
+    width: 100%;
+    padding: 20px 10px;
+    box-sizing: border-box;
+    max-width: 650px;
+    border-radius: 5px;
+    background-color: rgb(23, 23, 23);
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.reservation-profile-item {
+    position: relative;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    border-radius: 15px;
+    color: #a79883;
+    border: 1px solid #a79883;
+    width: 100%;
+    max-width: 550px;
+    padding: 10px;
+
+    p {
+        margin: 5px 0px;
+    }
+}
+
+
+.reservation-profile-item.actual{
+    margin: 40px 0px;
+}
+
+
+.reservation-history-btn  {
+    width: 65%;
+    max-width: 300px;
+    height: 36px;
+    padding: 10px; /* Отступы внутри кнопки */
+    border-radius: 5px;
+    border: none; /* Убираем рамку */
+    background-color: #a79883; /* Цвет фона кнопки */
+    color: rgb(15, 15, 15); /* Цвет текста кнопки */
+    font-size: calc(var(--index) * 0.8); /* Размер шрифта */
+    cursor: pointer; /* Курсор при наведении */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    transition: background-color 0.6s ease, color 0.6s ease; /* Плавный переход */
+
+    &:hover{
+        color:  #f5f5f5;/* Цвет текста при наведении */
+        background-color:  #585248;/* Цвет фона при наведении */
+    }
+}
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@media (max-width: 750px) {
+
+    .base-profile-container {
+        flex-direction: column;
+        overflow-y: auto;
+    }
+
+
+    .profile-block__left-side {
+        width: 100%;
+        padding: 0px 0px;
+        padding-top: 20px;
+    }
+
+
+    .profile-info-block {
+        padding: 10px 20px;
+    }
+
+
+    .actual-reservations-block {
+        padding: 10px 20px;
+        gap: 15px;
+    }
+
+
+    .profile-block__right-side {
+        width: 100%;
+        height: 200%;
+        padding: 20px 0px;
+    }
+
+
+    .user-reservations-block {
+        width: 90%;
+        padding: 10px 20px;
+        gap: 15px;
+    }
+
+
+    .reservation-profile-item.actual{
+        margin: 0px;
+    }
+}
+

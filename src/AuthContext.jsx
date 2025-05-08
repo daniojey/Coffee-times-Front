@@ -8,6 +8,7 @@ export const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(false);
     const [isLogin, setIsLogin] = useState(false)
     const [error, setError] = useState(null);
+    const [authChecked, setAuthChecked] = useState(false);
 
     const getCSRFToken = () => {
         const cookies = document.cookie.split(';');
@@ -24,11 +25,23 @@ export const AuthProvider = ({ children }) => {
                 console.log(response.data.user)
                 setUser(response.data.user);
                 setError(null);
+
+                if (response.data.user) {
+                    setUser(response.data.user);
+                    localStorage.setItem('user', JSON.stringify(response.data.user));
+                } else {
+                    setUser(null);
+                    localStorage.removeItem('user');
+                }
+
             } catch (err) {
                 console.error('Ошибка выхода:', err);
                 setError(err);
+                localStorage.removeItem('user');
+                setAuthChecked(false);
             } finally {
                 setLoading(false);
+                setAuthChecked(true);
             }
         }
 
@@ -77,6 +90,7 @@ export const AuthProvider = ({ children }) => {
               }
             );
             setUser(null);
+            window.location.href = '/'
           } catch (err) {
             setError(err);
             console.error('Ошибка выхода:', err);
