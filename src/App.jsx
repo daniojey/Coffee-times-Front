@@ -10,6 +10,7 @@ import MenuPage from './pages/MenuPage/MenuPage';
 import SearchReservationPage from './pages/SearchReservationPage/SearchReservationPage';
 import MapPage from './pages/MapPage/MapPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
+import ProfileHistoryPage from './pages/ProfileHistoryPage/ProfileHistoryPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
 
@@ -35,6 +36,12 @@ function App() {
             <Route path='/profile' element={
               <ProtectedRoute>
                 <ProfilePage />
+              </ProtectedRoute>
+            } />
+
+            <Route path='/reservation-history' element={
+              <ProtectedRoute>
+                <ProfileHistoryPage />
               </ProtectedRoute>
             } />
 

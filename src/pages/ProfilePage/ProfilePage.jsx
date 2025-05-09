@@ -4,11 +4,13 @@ import { AuthContext } from "../../AuthContext";
 import { api } from "../../../api";
 
 import './ProfilePage.css'
+import { useNavigate } from "react-router-dom";
 
 function ProfilePage() {
     const { user, logout } = useContext(AuthContext)
     const [reservations, setReservations] = useState([]);
     const [actualReservation, setActualReservation] = useState([]);
+    const navigate = useNavigate()
 
     useEffect(() => {
         const fetchReservations = async () => {
@@ -24,6 +26,10 @@ function ProfilePage() {
         
         fetchReservations()
     },[])
+
+    const handleHistoryButton = (e) => {
+        navigate('/reservation-history')
+    }
 
     return (
         <div className="base-profile-container">
@@ -62,7 +68,7 @@ function ProfilePage() {
                         ))
                     )}
 
-                    <button className="reservation-history-btn">Історія бронювань</button>
+                    <button className="reservation-history-btn" onClick={handleHistoryButton}>Історія бронювань</button>
                 </div>
             </div>
 

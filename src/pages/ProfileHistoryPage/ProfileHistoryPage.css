@@ -1,0 +1,188 @@
+.base-history-container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    flex: 1;
+}
+
+
+.history-content {
+    display: flex;
+    flex: 1;
+}
+
+
+.reservation-content {
+    display: flex;
+    width: 50%;
+    justify-content: start;
+    flex-direction: column;
+    align-items: end;
+    padding: 0;
+    padding-right: 20px;
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+
+
+.filter-history-content {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: start;
+    align-items: start;
+    padding: 20px;
+    gap: 15px;
+}
+
+
+.reservation-item-history {
+    max-width: 400px;
+    min-width: 200px;
+    width: 100%;
+    color: #a79883;
+    background-color: rgb(39, 39, 39);
+    border-radius: 12px;
+    font-size: calc(var(--index) * 0.6);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    animation: enterIn 0.5s ease-in-out;
+    animation-fill-mode: forwards;
+    border: 0.5px solid rgb(255, 255, 255, 0.05);
+    transform: scale(0);
+
+    p {
+        margin: 10px;
+    }
+}
+
+
+.filter-form-content {
+    display: flex;
+    min-width: 250px;
+    max-width: 500px;
+    height: auto;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    color: #a79883;
+    background-color: rgb(39, 39, 39);
+    border: 0.5px solid rgb(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 20px;
+    box-sizing: border-box;
+
+    h2 {
+        font-size: 18px;
+        margin: 0px auto;
+        margin-bottom: 10px;
+    }
+
+    label {
+        display: flex;
+        gap: 15px;
+    }
+
+    select {
+        max-width: 200px;
+        border-radius: 5px;
+        padding: 5px 10px;
+        margin: 0;
+        font-size: 18px;
+        color: #a79883;
+        background-color: rgb(39, 39, 39);
+        border: 1px solid #a79883;
+
+        &:focus{
+            outline: none; /* Убираем обводку при фокусе */
+            border: 1px solid #a79883; /* Цвет рамки при фокусе */
+            box-shadow: 0px 3px 5px #a79883; /* Тень для поля ввода при фокусе */
+        }
+    }
+}
+
+
+.filter-history-button {
+    width: 100%;
+    height: 100%;
+    padding: 8px 20px; /* Отступы внутри кнопки */
+    border-radius: 5px;
+    border: none; /* Убираем рамку */
+    background-color: #a79883; /* Цвет фона кнопки */
+    color: rgb(15, 15, 15); /* Цвет текста кнопки */
+    font-size: 18px; /* Размер шрифта */
+    cursor: pointer; /* Курсор при наведении */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    transition: background-color 0.6s ease, color 0.6s ease; /* Плавный переход */
+
+    &:hover {
+        color: #f5f5f5;
+        background-color:  #585248;
+    }
+}
+
+
+.pagination {
+    font-size: calc(var(--index) * 0.6);
+    gap: 5px;
+}
+
+.pagination-ellipsis {
+    display: flex;
+    color: #585248;
+    padding: 6px 11px;
+    border-radius: 10px;
+    transition: color 0.5s ease, background-color 0.5s ease, border 0.5s ease;
+
+    &:disabled {
+        color: black;
+        background-color: #585248;
+    }
+}
+
+
+@keyframes enterIn {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+@media (max-width: 650px) {
+    .history-content {
+        flex-direction: column;
+    }
+
+    .reservation-content {
+        width: 100%;
+    }
+
+    .filter-history-content {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .filter-form-content {
+        max-width: 100%;
+    }
+
+    .reservation-item-history {
+        max-width: 100%;
+        font-size: calc(var(--index) * 0.9);
+    }
+
+    .pagination {
+        font-size: calc(var(--index) * 0.78);
+    }
+}
