@@ -11,6 +11,7 @@ import SearchReservationPage from './pages/SearchReservationPage/SearchReservati
 import MapPage from './pages/MapPage/MapPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
 import ProfileHistoryPage from './pages/ProfileHistoryPage/ProfileHistoryPage';
+import CreateReservationPage from './pages/CreateReservationPage/CreateReservationPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
 
@@ -31,6 +32,7 @@ function App() {
             <Route path='/menu' element={<MenuPage />} />
             <Route path='/search-reservations' element={<SearchReservationPage />} />
             <Route path='/map' element={<MapPage />} />
+            <Route path='/create-reservation' element={<CreateReservationPage />}></Route>
 
 
             <Route path='/profile' element={

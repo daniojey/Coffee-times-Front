@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
+import { Link } from "react-router-dom";
 
 // Фикс для иконок Leaflet в React
 delete L.Icon.Default.prototype._getIconUrl;
@@ -190,7 +191,7 @@ function MapPage() {
                                     <div className="popup-content">
                                         <h3>{house.name}</h3>
                                         <p>{house.address}</p>
-                                        <a className="popup-link">Створити бронь</a>
+                                        <Link className="popup-link" to={`/create-reservation/?coffeehouse=${house.id}`}>Створити бронь</Link>
                                     </div>
                                 </Popup>
                             </Marker>

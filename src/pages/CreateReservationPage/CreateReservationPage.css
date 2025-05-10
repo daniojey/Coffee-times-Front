@@ -1,0 +1,284 @@
+.create-reservation-container {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* Стили бозового контейнера */
+.form-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: rgb(23, 23, 23);
+    border-radius: 10px;
+    border: 0.1px solid rgb(255, 255, 255, 0.05);
+    border-top: 0.2px solid rgb(255, 255, 255, 0.1);
+    max-width: 700px;
+    width: 100%;
+    margin: 40px auto;
+    padding: 24px 40px;
+    box-sizing: border-box;
+    animation: fadeIn 0.5s ease;
+    animation-fill-mode: forwards;
+}
+
+
+.form-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #a79883;
+    font-size: calc(var(--index) * 1.2);
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+
+}
+
+
+/* Стили формы и его полей */
+.form-create-body{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+label {
+    color: #a79883;
+    font-size: calc(var(--index) * 0.9);
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+
+/* Поле в котором содержатся все label + input за исключением поля выбора времени бронирования */
+.form-field {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 30px;
+    animation: fadeIn 0.5s ease;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+
+/* Стиль для каждого текстового Input поля */
+.custom-input {
+    display: flex;
+    width: 35%;
+    margin: 0px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: rgb(39, 39, 39);
+    color: #a79883; /* Цвет текста */
+    border: 1px solid #272319; /* Цвет рамки */
+    border-radius: 5px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+
+/* Кастомные фокус параметры для создания теней на всех видах полей что используются */
+input:focus {
+    outline: none; /* Убираем обводку при фокусе */
+    border: 1px solid #a79883; /* Цвет рамки при фокусе */
+    box-shadow: 0px 3px 5px #a79883; /* Тень для поля ввода при фокусе */
+}
+
+
+select:focus{
+    outline: none; /* Убираем обводку при фокусе */
+    border: 1px solid #a79883; /* Цвет рамки при фокусе */
+    box-shadow: 0px 3px 5px #a79883; /* Тень для поля ввода при фокусе */
+}
+
+
+/* Стили для виджетов type=Select */
+.custom-select{
+    display: flex;
+    width: 35%; 
+    padding: 10px;
+    font-size: 16px;
+    background-color: rgb(39, 39, 39);
+    color: #a79883; /* Цвет текста */
+    border: 1px solid #272319; /* Цвет рамки */
+    border-radius: 5px;
+    appearance: none; /* Убираем стандартную стрелочку */
+    background-image: url('../../assets/arrow_down.svg'); /* Добавляем свою стрелку */
+    background-repeat: no-repeat;
+    background-position: right 10px center; /* Положение стрелки */
+    background-size: 20px; /* Размер стрелки */
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+
+/* Стиль для инпута Даты*/
+.date-reservation-input {
+    display: flex;
+    max-width: 130px;
+    background-color: rgb(39, 39, 39) !important;
+    color: #a79883; /* Цвет текста */
+    border: 1px solid #a79883; /* Цвет рамки */
+    border-radius: 5px;
+    margin-bottom: 0px;
+    padding: 10px;
+    outline: none;
+    flex: 1;
+    font-size: 16px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    background-color: transparent;
+    appearance: none !important; /* Убираем стандартную иконку */
+    -webkit-appearance: none; /* Для Safari/Chrome */
+    -moz-appearance: none; /* Для Firefox */
+    background-image: url('../../assets/calendar.svg'); /* Путь к иконке календаря */
+    background-repeat: no-repeat;
+    background-position: right 5px center; /* Положение иконки */
+    background-size: 20px; /* Размер иконки */
+}
+
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: flex;
+    opacity: 0;
+    /* -webkit-appearance: ; */
+}
+
+
+/* Стили для инпута времени */
+.time-input {
+    background-color: rgb(39, 39, 39);
+    color: #a79883; /* Цвет текста */
+    border: 1px solid #a79883; /* Цвет рамки */
+    border-radius: 5px;
+    padding: 10px;
+    padding-right: 45px;
+    font-size: 16px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    appearance: none !important; /* Убираем стандартный стиль браузера */
+    -webkit-appearance: none !important; /* Для Safari/Chrome */
+    -moz-appearance: none !important; /* Для Firefox */
+    background-image: url('../../assets/custom_clock.svg'); /* Путь к иконке календаря */
+    background-repeat: no-repeat;
+    background-position: right 14px center; /* Положение иконки */
+    background-size: 22px; /* Размер иконки */
+}
+
+
+.custom-table {
+    display: flex;
+    max-width: 95px;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: rgb(39, 39, 39);
+    color: #a79883; /* Цвет текста */
+    border: 1px solid #a79883; /* Цвет рамки */
+    border-radius: 5px;
+    appearance: none; /* Убираем стандартную стрелочку */
+    background-image: url('../../assets/arrow_down.svg'); /* Добавляем свою стрелку */
+    background-repeat: no-repeat;
+    background-position: right 10px center; /* Положение стрелки */
+    background-size: 20px; /* Размер стрелки */
+}
+
+
+.flex-style-tables{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeIn 0.5s ease;
+    animation-fill-mode: forwards;
+}
+
+
+/* Стили для кнопки формы */
+.button-reservation-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.submit-reservation-btn {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 7px;
+    box-sizing: border-box;
+    font-size: 18px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    background-color: #a79883; /* Цвет фона кнопки */
+    color: rgb(15, 15, 15); /* Цвет текста кнопки */
+    border: none;
+    margin: 0px;
+    margin-top: 40px;
+    border-radius: 5px;
+    max-width: 200px;
+    width: 100%;
+    transition: transform 0.3s ease, background-color 0.6s ease, color 0.6s ease;
+
+    &:hover {
+        transform: scale(1.10);
+        background-color:  #585248;/* Цвет фона при наведении */
+        color:  #f5f5f5;/* Цвет текста при наведении */
+    }
+}
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@media(max-width: 400px) {
+    .form-title {
+        font-size: calc(var(--index) * 1.4);
+    }
+
+    .form-content {
+        padding: 24px 10px;
+    }
+
+    .button-reservation-container {
+        min-width: 100%;
+    }
+
+    .submit-reservation-btn {
+        min-width: 100%;
+    }
+}

@@ -31,7 +31,7 @@ function HomePage() {
                 navigation('/reservation');
                 break;
             case 'search':
-                navigation('/search');
+                navigation('/create-reservation');
                 break;
 
         }
