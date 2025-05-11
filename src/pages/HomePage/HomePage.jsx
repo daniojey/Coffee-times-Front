@@ -27,11 +27,11 @@ function HomePage() {
             case 'map':
                 navigation('/map');
                 break;
-            case 'reservation':
-                navigation('/reservation');
+            case 'create':
+                navigation('/create-reservation');
                 break;
             case 'search':
-                navigation('/create-reservation');
+                navigation('/search-reservations');
                 break;
 
         }
@@ -114,7 +114,10 @@ function HomePage() {
                         <p>Пошук бронювання</p>
                     </div>
 
-                    <div className="navigation__info-second" onClick={(e) => handleClickLink(e, 'reservation')}>
+                    <div className="navigation__info-second" onClick={(e) => {
+                                    e.stopPropagation(); // Важная строка!
+                                    handleClickLink(e, 'create');
+                                    }}>
                         <DynamicPngIcon iconName="plusIcon" className="navigation__info-plus-img"/>
                         <p>Створити бронювання</p>
                     </div>
