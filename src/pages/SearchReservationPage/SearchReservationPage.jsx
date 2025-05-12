@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 
-import { api } from "../../../api";
+import { api, fetchCSRFToken } from "../../../api";
 
 import "./SearchReservationPage.css"
 
@@ -22,6 +22,8 @@ function SearchReservationPage() {
 
     const fetchReservations =  async (actual, phone) => {
         try {
+            await fetchCSRFToken()
+
             const response = await api.post("api/v1/reservations_search/",
                 {actual, phone},
                 {
