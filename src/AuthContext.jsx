@@ -1,6 +1,8 @@
 import React, {useState, createContext, useEffect} from "react";
 import { api } from '../api.js';
 
+import { fetchCSRFToken } from "../api.js";
+
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -22,6 +24,8 @@ export const AuthProvider = ({ children }) => {
     useEffect(() => {
         const checkAuth = async () => {
             try {
+                // Получаем токен при инициализации
+                fetchCSRFToken();
                 await api.get('/api/v1/csrf_token/', {withCredentials: true});
 
                 const response = await api.get('/api/v1/check_user/', {withCredentials: true});
