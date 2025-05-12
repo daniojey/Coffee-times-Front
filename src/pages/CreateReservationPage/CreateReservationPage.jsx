@@ -72,11 +72,16 @@ function CreateReservationPage() {
     const navigation = useNavigate()
 
 
-    const getCSRFToken = () => {
-        const cookies = document.cookie.split(';');
-        const csrfCookie = cookies.find(cookie => cookie.trim().startsWith('csrftoken='));
-        return csrfCookie ? csrfCookie.split('=')[1] : '';
-    }
+    const getCSRFTokenFromCookie = () => {
+        const cookieValue = document.cookie
+            .split('; ')
+            .find(row => row.startsWith('csrftoken='))
+            ?.split('=')[1];
+
+        console.log(cookieValue)
+
+        return cookieValue ? decodeURIComponent(cookieValue) : '';
+    };
 
 
     useEffect(() => {
@@ -127,7 +132,7 @@ function CreateReservationPage() {
                         {
                             withCredentials: true,
                             headers: {
-                                'X-CSRFToken': getCSRFToken(), // Функция для получения токена
+                                'X-CSRFToken': getCSRFTokenFromCookie(), // Функция для получения токена
                             }
                                 
                         }
@@ -159,7 +164,7 @@ function CreateReservationPage() {
                     {
                     withCredentials: true,
                     headers: {
-                            'X-CSRFToken': getCSRFToken(), // Функция для получения токена
+                            'X-CSRFToken': getCSRFTokenFromCookie(), // Функция для получения токена
                     }
                     }
                     )
@@ -202,7 +207,7 @@ function CreateReservationPage() {
             {
                 withCredentials: true,
                 headers: {
-                    'X-CSRFToken': getCSRFToken(),
+                    'X-CSRFToken': getCSRFTokenFromCookie(),
                 }
             }
             )

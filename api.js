@@ -16,7 +16,6 @@ const getCSRFTokenFromCookie = () => {
         ?.split('=')[1];
 
     console.log(cookieValue)
-
     return cookieValue ? decodeURIComponent(cookieValue) : '';
 };
 
@@ -26,7 +25,6 @@ api.interceptors.request.use((config) => {
   if (csrfToken) {
     config.headers['X-CSRFToken'] = csrfToken;
   }
-  console.log(config)
   return config;
 });
 
