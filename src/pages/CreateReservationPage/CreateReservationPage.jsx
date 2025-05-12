@@ -87,7 +87,7 @@ function CreateReservationPage() {
     useEffect(() => {
         const fetchCoffeehouses = async () => {
             try {
-                const response =  await api.get('/api/v1/get-coffeehouses/', {withCredentials:true});
+                const response =  await api.get('/api/v1/get-coffeehouses/');
                 console.log(response.data)
                 dispatch({ type:ACTIONS.SET_COFFEEHOUSES, payload: response.data.coffeehouses})
             } catch (err) {
@@ -127,17 +127,9 @@ function CreateReservationPage() {
         if (coffeehouseInput && dateInput && timeInput) {
             const fetchDuration = async () => {
                 try {
-                    await fetchCSRFToken()
 
                     const response = await api.post('api/v1/get-booking-duration/', 
                         {coffeehouse: coffeehouseInput, reservation_time: timeInput}, 
-                        {
-                            withCredentials: true,
-                            headers: {
-                                'X-CSRFToken': getCSRFTokenFromCookie(), // Функция для получения токена
-                            }
-                                
-                        }
                     )
 
                     console.log(response.data.data)
@@ -159,7 +151,6 @@ function CreateReservationPage() {
             console.log(durationInput)
             const fetchTables = async () => {
                 try {
-                    await fetchCSRFToken()
 
                     const response = await api.post('api/v1/get-tables/', {
                         coffeehouse: coffeehouseInput,
@@ -167,12 +158,6 @@ function CreateReservationPage() {
                         reservation_time: timeInput,
                         booking_duration: durationInput
                     },
-                    {
-                    withCredentials: true,
-                    headers: {
-                            'X-CSRFToken': getCSRFTokenFromCookie(), // Функция для получения токена
-                    }
-                    }
                     )
 
                     console.log(response.data.tables)
@@ -210,12 +195,6 @@ function CreateReservationPage() {
                 reservation_time: timeInput,
                 booking_duration: durationInput,
             },
-            {
-                withCredentials: true,
-                headers: {
-                    'X-CSRFToken': getCSRFTokenFromCookie(),
-                }
-            }
             )
             console.log(createReservation)
 

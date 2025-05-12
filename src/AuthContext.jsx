@@ -12,16 +12,16 @@ export const AuthProvider = ({ children }) => {
     const [error, setError] = useState(null);
     const [authChecked, setAuthChecked] = useState(false);
 
-    const getCSRFTokenFromCookie = () => {
-        const cookieValue = document.cookie
-            .split('; ')
-            .find(row => row.startsWith('csrftoken='))
-            ?.split('=')[1];
+    // const getCSRFTokenFromCookie = () => {
+    //     const cookieValue = document.cookie
+    //         .split('; ')
+    //         .find(row => row.startsWith('csrftoken='))
+    //         ?.split('=')[1];
 
-        console.log(cookieValue)
+    //     console.log(cookieValue)
 
-        return cookieValue ? decodeURIComponent(cookieValue) : '';
-    };
+    //     return cookieValue ? decodeURIComponent(cookieValue) : '';
+    // };
 
     useEffect(() => {
         const checkAuth = async () => {
@@ -29,7 +29,7 @@ export const AuthProvider = ({ children }) => {
                 // Получаем токен при инициализации
                 await fetchCSRFToken();
 
-                const response = await api.get('/api/v1/check_user/', {withCredentials: true});
+                const response = await api.get('/api/v1/check_user/');
                 console.log(response.data.user)
                 setUser(response.data.user);
                 setError(null);
@@ -62,15 +62,10 @@ export const AuthProvider = ({ children }) => {
             setIsLogin(true)
             await api.post( '/api/v1/login/', 
                 { username, password },
-                { withCredentials: true, headers: {
-                    'X-CSRFToken': getCSRFTokenFromCookie(), // Функция для получения токена
-                  },}
             );
 
             
-            const userResponse = await api.get('/api/v1/check_user/', {
-                withCredentials: true
-            });
+            const userResponse = await api.get('/api/v1/check_user/');
 
             setUser(userResponse.data.user);
             return true
@@ -87,18 +82,11 @@ export const AuthProvider = ({ children }) => {
 
     const logout = async () => {
         try {
-            await fetchCSRFToken()
 
             // 2. Отправляем запрос на выход
             await api.post(
             '/api/v1/logout/', 
             {}, 
-            {
-                withCredentials: true,
-                headers: {
-                'X-CSRFToken': getCSRFTokenFromCookie(),
-                },
-            }
             );
 
             // 3. Очищаем данные клиента
@@ -106,7 +94,7 @@ export const AuthProvider = ({ children }) => {
             localStorage.removeItem('user');
             
             // 4. Обновляем CSRF токен
-            await fetchCSRFToken()
+           await fetchCSRFToken();
 
             window.location.href = '/';
         } catch (err) {
@@ -121,16 +109,9 @@ export const AuthProvider = ({ children }) => {
                 phone,
                 password1,
                 password2
-            }, {
-                withCredentials: true,
-                headers: {
-                    'X-CSRFToken': getCSRFTokenFromCookie(), // Функция для получения токена
-                  },
-            })
+            },)
 
-            const userResponse = await api.get('/api/v1/check_user/', {
-                withCredentials: true
-            });
+            const userResponse = await api.get('/api/v1/check_user/');
 
             setUser(userResponse.data.user);
             return true

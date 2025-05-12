@@ -14,22 +14,11 @@ function SearchReservationPage() {
     const sourceRef = useRef(null);
     const targetRef = useRef(null);
 
-    const getCSRFToken = () => {
-        const cookies = document.cookie.split(';');
-        const csrfCookie = cookies.find(cookie => cookie.trim().startsWith('csrftoken='));
-        return csrfCookie ? csrfCookie.split('=')[1] : '';
-    }
 
     const fetchReservations =  async (actual, phone) => {
         try {
             const response = await api.post("api/v1/reservations_search/",
                 {actual, phone},
-                {
-                    withCredentials:true,
-                    headers: {
-                        'X-CSRFToken': getCSRFToken(), // Функция для получения токена
-                    }
-                }
                 )
             
             if (response.data.reservations.length > 0) {
