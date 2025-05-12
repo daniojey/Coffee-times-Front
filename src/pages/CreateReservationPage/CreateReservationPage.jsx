@@ -2,7 +2,7 @@ import React, { useState, useReducer, useContext, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
 import { AuthContext } from "../../AuthContext";
-import { api } from "../../../api";
+import { api, fetchCSRFToken } from "../../../api";
 
 import './CreateReservationPage.css'
 
@@ -127,6 +127,8 @@ function CreateReservationPage() {
         if (coffeehouseInput && dateInput && timeInput) {
             const fetchDuration = async () => {
                 try {
+                    await fetchCSRFToken()
+
                     const response = await api.post('api/v1/get-booking-duration/', 
                         {coffeehouse: coffeehouseInput, reservation_time: timeInput}, 
                         {
@@ -152,9 +154,13 @@ function CreateReservationPage() {
 
 
         if (coffeehouseInput && dateInput && timeInput && durationInput && durationInput !== '00:00' ) {
+
+            
             console.log(durationInput)
             const fetchTables = async () => {
                 try {
+                    await fetchCSRFToken()
+
                     const response = await api.post('api/v1/get-tables/', {
                         coffeehouse: coffeehouseInput,
                         reservation_date: dateInput,
