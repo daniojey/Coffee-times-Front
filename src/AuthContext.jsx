@@ -12,9 +12,12 @@ export const AuthProvider = ({ children }) => {
 
     const getCSRFToken = () => {
         const cookies = document.cookie.split(';');
-        const csrfCookie = cookies.find(cookie => cookie.trim().startsWith('csrftoken='));
-        return csrfCookie ? csrfCookie.split('=')[1] : '';
-    }
+        const csrfCookie = cookies.find(cookie => 
+            cookie.trim().startsWith('csrftoken=')
+        );
+        console.log(csrfCookie)
+        return csrfCookie ? decodeURIComponent(csrfCookie.split('=')[1]) : '';
+    };
 
     useEffect(() => {
         const checkAuth = async () => {
@@ -79,22 +82,36 @@ export const AuthProvider = ({ children }) => {
 
     const logout = async () => {
         try {
+            // 1. Получаем новый CSRF токен перед выходом
+            await api.get('/api/v1/csrf_token/', { 
+            withCredentials: true 
+            });
+
+            // 2. Отправляем запрос на выход
             await api.post(
-              '/api/v1/logout/', 
-              {}, 
-              {
+            '/api/v1/logout/', 
+            {}, 
+            {
                 withCredentials: true,
                 headers: {
-                  'X-CSRFToken': getCSRFToken(), // Функция для получения токена
+                'X-CSRFToken': getCSRFToken(),
                 },
-              }
+            }
             );
+
+            // 3. Очищаем данные клиента
             setUser(null);
-            window.location.href = '/'
-          } catch (err) {
-            setError(err);
-            console.error('Ошибка выхода:', err);
-          }
+            localStorage.removeItem('user');
+            
+            // 4. Обновляем CSRF токен
+            await api.get('/api/v1/csrf_token/', {
+            withCredentials: true
+            });
+
+            window.location.href = '/';
+        } catch (err) {
+            console.error('Logout error:', err.response?.data || err);
+        }
     };
 
     const registration = async (username, phone, password1, password2) => {
