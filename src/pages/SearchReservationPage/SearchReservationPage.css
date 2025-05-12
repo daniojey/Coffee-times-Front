@@ -52,10 +52,9 @@ header {
     justify-content: start;
     align-items: start;
     position: absolute;
-    width: 115px;
     left: 0;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
 }
 
 
@@ -73,7 +72,7 @@ header {
 }
 
 
-input[type="checkbox"] {
+.actual-reservation-checkbox {
     /* Add if not using autoprefixer */
     -webkit-appearance: none;
     /* Remove most all native input styles */
@@ -90,13 +89,14 @@ input[type="checkbox"] {
     border: 0.15em solid currentColor;
     border-radius: 0.15em;
     transform: translateY(-0.075em);
+    margin-left: 15px !important;
   
     display: grid;
     place-content: center;
   }
   
 
-input[type="checkbox"]::before {
+.actual-reservation-checkbox::before {
     content: "";
     width: 0.65em;
     height: 0.65em;
@@ -110,7 +110,7 @@ input[type="checkbox"]::before {
 }
   
 
-input[type="checkbox"]:checked::before {
+.actual-reservation-checkbox:checked::before {
     transform: scale(1);
 }
   

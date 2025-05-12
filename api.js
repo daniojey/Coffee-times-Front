@@ -2,7 +2,7 @@ import axios from "axios";
 
 // В .env файле укажите адрес вашего API
 export const api = axios.create({
-    baseURL: import.meta.env.VITE_REACT_APP_API_BASE_URL || 'http://localhost:8000',
+    baseURL: import.meta.env.VITE_REACT_APP_API_BASE_URL || 'http://localhost:1000',
     headers: {
         'Content-Type': 'application/json',
     },

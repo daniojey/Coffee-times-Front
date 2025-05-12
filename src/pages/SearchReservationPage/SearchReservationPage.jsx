@@ -93,7 +93,7 @@ function SearchReservationPage() {
                     <div className="checkbox-block">
                         <div className="checkbox-label">
                             <label>Актуальные</label>
-                            <input type="checkbox" id="checkbox" onChange={(e) => setActual(!actual)}/>
+                            <input className="actual-reservation-checkbox" type="checkbox" id="checkbox" onChange={(e) => setActual(!actual)}/>
                         </div>
 
                     </div>
