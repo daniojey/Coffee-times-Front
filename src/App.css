@@ -54,7 +54,7 @@ input[type="checkbox"]:checked::before {
 
 /* Стиль для скроллбара в WebKit-браузерах (Chrome, Safari) */
 ::-webkit-scrollbar {
-  width: 62px; /* ширина скроллбара */
+  width: 8px; /* ширина скроллбара */
 }
 
 /* Фон скроллбара */

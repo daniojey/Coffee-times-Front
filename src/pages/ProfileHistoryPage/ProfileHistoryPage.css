@@ -61,7 +61,7 @@
 
 .filter-form-content {
     display: flex;
-    min-width: 250px;
+    width: 100%;
     max-width: 500px;
     height: auto;
     flex-direction: column;

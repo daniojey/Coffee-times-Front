@@ -129,7 +129,7 @@ select:focus{
 /* Стиль для инпута Даты*/
 .date-reservation-input {
     display: flex;
-    max-width: 130px;
+    max-width: 110px !important;
     background-color: rgb(39, 39, 39) !important;
     color: #a79883; /* Цвет текста */
     border: 1px solid #a79883; /* Цвет рамки */
