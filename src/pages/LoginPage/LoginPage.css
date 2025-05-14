@@ -9,7 +9,7 @@
 }
 
 
-.form-container {
+.form-login-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -87,7 +87,7 @@ form h3{
 }
 
 
-form input {
+.login-form input {
     display: flex;
     width: 100%;
     height: 36px;
@@ -104,14 +104,14 @@ form input {
 }
 
 
-form input:focus {
+.login-form input:focus {
     outline: none; /* Убираем обводку при фокусе */
     border: 1px solid #a79883; /* Цвет рамки при фокусе */
     box-shadow: 0px 3px 5px #a79883; /* Тень для поля ввода при фокусе */
 }
 
 
-form button{
+.login-form button{
     width: 100%;
     height: 36px;
     padding: 10px; /* Отступы внутри кнопки */
@@ -171,7 +171,7 @@ form button{
 }
 
 
-.google-login {
+.google-login__login {
     display: flex;
     position: relative;
     width: 100%;
@@ -188,7 +188,7 @@ form button{
 }
 
 
-.google-login img{
+.google-login__login img{
     position: absolute;
     height: 26px;
     width: 26px;
@@ -198,7 +198,7 @@ form button{
 }
 
 
-.google-login svg{
+.google-login__login svg{
     position: absolute;
     height: 26px;
     width: 26px;
@@ -263,7 +263,7 @@ input:-webkit-autofill:focus {
 }
 
 @media (max-width: 650px) {
-    form h3{
+    .login-form h3{
         font-size: calc(var(--index) * 1.7);
     }
 
@@ -275,11 +275,19 @@ input:-webkit-autofill:focus {
         font-size: calc(var(--index) * 1.2);
     }
 
-    form input {
+    .login-form input {
         font-size: calc(var(--index) * 1.2);
     }
 
-    form button {
+    .login-form button {
         font-size: calc(var(--index) * 1.2);
+    }
+
+    .google-login__login {
+        font-size: calc(var(--index) * 1.2);
+    }
+
+    #or {
+        font-size: calc(var(--index) * 1.5) !important;
     }
 }

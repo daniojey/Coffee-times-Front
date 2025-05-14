@@ -43,7 +43,7 @@ function RegistrationPage() {
     return (
         <div className="base-registration-container">
             <div className="registration-form-container">
-                <form id='registration-form' onSubmit={handleSubmit}>
+                <form id='registration-form' onSubmit={handleSubmit} aria-label="Registration form">
                     <h3>Sign Up</h3>
                     <p className="second-title">Do you have an account? <Link className="signuplink">Login</Link></p>
 

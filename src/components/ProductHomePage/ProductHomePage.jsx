@@ -28,7 +28,7 @@ function ProductHomePage({ data }) {
             {/* <DynamicImages imageUrl={image_url}/> */}
             <img src={image_url}></img>
 
-            <div id="productId">
+            <div id="productId" data-testid="productId">
                 <div className='product__name_description'>
                     <p>{name}</p>
                     <p>{truncateString(description, 70)}</p>

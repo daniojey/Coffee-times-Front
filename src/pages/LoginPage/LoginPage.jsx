@@ -29,8 +29,8 @@ function LoginPage() {
 
     return (
         <div className='base-container'>
-            <div className='form-container'>
-                <form onSubmit={handleSubmit}>
+            <div className='form-login-container'>
+                <form onSubmit={handleSubmit} className="login-form"  aria-label="Login form">
                     <h3>Welcome Back!</h3>
                     <p className='second-title'>Don`n have account yet? <Link className='signuplink' to="/registration">Sign Up</Link></p>
 
@@ -62,7 +62,7 @@ function LoginPage() {
                         <p id="or">OR</p>
                     </div>
 
-                    <a className='google-login'>
+                    <a className='google-login__login'>
                         <GoggleIcon />
                     </a>
 
