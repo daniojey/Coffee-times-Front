@@ -5,6 +5,7 @@ import HomePage from './HomePage';
 import userEvent from '@testing-library/user-event';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+import { AuthContext } from '../../AuthContext.jsx';
 import { api, fetchCSRFToken } from '../../../api';
 import ProductHomePage from "../../components/ProductHomePage/ProductHomePage.jsx";
 import DynamicPngIcon from "../../components/UI/icons/DynamicPngIcon.jsx";
@@ -71,6 +72,10 @@ vi.mock('../../components/UI/icons/DynamicPngIcon.jsx', () => ({
     default: () => <div>PNGIcon</div>
 }))
 
+const AuthContextMock = {
+    user: null,
+}
+
 
 describe('HomePage', () => {
     beforeEach(() => {
@@ -85,7 +90,11 @@ describe('HomePage', () => {
     });
 
     const renderComponent = () => {
-        return render(<HomePage />)
+        return render(
+            <AuthContext.Provider value={AuthContextMock}>
+                <HomePage />
+            </AuthContext.Provider>
+        )
     }
 
     test('Загружаются ли продукты при загрузке страницы', async () => {
@@ -145,7 +154,7 @@ describe('HomePage', () => {
         await user.click(createLink);
 
         await waitFor(() => {
-            expect(mockNavigate).toHaveBeenCalledWith('/search-reservations');
+            expect(mockNavigate).toHaveBeenCalledWith('/create-reservation');
         });
     });
 

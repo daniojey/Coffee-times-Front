@@ -1,5 +1,5 @@
 {/* Библиотеки */}
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { api } from '../../../api.js';
 import { useNavigate } from "react-router-dom";
@@ -9,6 +9,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 {/* Компоненты */}
 import ProductHomePage from "../../components/ProductHomePage/ProductHomePage.jsx";
 import DynamicPngIcon from "../../components/UI/icons/DynamicPngIcon.jsx";
+import { AuthContext } from "../../AuthContext.jsx";
 
 {/* Стили */}
 import './HomePage.css';
@@ -20,6 +21,7 @@ import 'swiper/css/scrollbar';
 
 function HomePage() {
     const [products, setProducts] = useState([]);
+    const { user } = useContext(AuthContext);
     const navigation = useNavigate();
 
     const handleClickLink = (e, nameLink) => {
@@ -33,6 +35,8 @@ function HomePage() {
             case 'search':
                 navigation('/search-reservations');
                 break;
+            case 'history':
+                navigation('/reservation-history');
 
         }
     }
@@ -109,7 +113,7 @@ function HomePage() {
                 </div>
 
                 <div className="navigation-block__info" >
-                    <div data-testid="navigation__info-first" className="navigation__info-first" onClick={(e) => handleClickLink(e, 'search')} data-url="">
+                    <div data-testid="navigation__info-first" className="navigation__info-first" onClick={(e) => handleClickLink(e, !user ? "search" : 'history')} data-url="">
                         <DynamicPngIcon iconName="searchIcon" className="navigation__info-search-img"/>
                         <p>Пошук бронювання</p>
                     </div>

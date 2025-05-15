@@ -34,7 +34,7 @@ function Header() {
                     <Link to='/'>Головна</Link>
                 </div>
 
-                <div className="burger" id="burger" onClick={(e) => setIsOpen(!isOpen)}>
+                <div data-testid="burger" className="burger" id="burger" onClick={(e) => setIsOpen(!isOpen)}>
                         <span></span>
                         <span></span>
                         <span></span>
@@ -61,7 +61,7 @@ function Header() {
                     </ul>
                 </div>
 
-                <ul className={`mobile-links ${isOpen ? 'active': ''}`} id="mobile-links" >
+                <ul data-testid="mobile-menu" className={`mobile-links ${isOpen ? 'active': ''}`} id="mobile-links" >
                     <li><Link to='/menu'>Меню</Link></li>
                     <li><Link to='/map'>Мапа кав'ярень</Link></li>
 

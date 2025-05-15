@@ -3,6 +3,7 @@
     width: 100%;
     flex-direction: column;
     flex: 1;
+    background-color: rgb(15, 15, 15);
 }
 
 
@@ -130,9 +131,39 @@
 }
 
 
+/* Стили пагинации */
+
 .pagination {
-    font-size: calc(var(--index) * 0.6);
-    gap: 5px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    margin-top: auto; /* Это гарантирует, что футер всегда будет внизу */
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.pagination-button {
+    display: flex;
+    color: #a79883;
+    border: 0.5px solid #a79883;
+    transition: color 0.5s ease, background-color 0.5s ease, border 0.5s ease;
+
+    &:hover {
+        color: #f5f5f5;
+        background-color: #585248;
+        border: none;
+    }
+
+    &:disabled {
+        color: black;
+        background-color: #585248;
+    }
+}
+
+.pagination-button.active {
+    color: #585248;
+    background-color: #a79883;
 }
 
 .pagination-ellipsis {
@@ -184,5 +215,6 @@
 
     .pagination {
         font-size: calc(var(--index) * 0.78);
+        gap: 5px;
     }
 }

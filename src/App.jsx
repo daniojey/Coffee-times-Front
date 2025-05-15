@@ -15,8 +15,8 @@ const SearchReservationPage = React.lazy(() => import('./pages/SearchReservation
 const MapPage = React.lazy(() => import('./pages/MapPage/MapPage'))
 // import ProfilePage from './pages/ProfilePage/ProfilePage';
 const ProfilePage = React.lazy(() => import('./pages/ProfilePage/ProfilePage'))
-// import ProfileHistoryPage from './pages/ProfileHistoryPage/ProfileHistoryPage';
-const ProfileHistoryPage = React.lazy(() => import('./pages/ProfileHistoryPage/ProfileHistoryPage'))
+import ProfileHistoryPage from './pages/ProfileHistoryPage/ProfileHistoryPage';
+// const ProfileHistoryPage = React.lazy(() => import('./pages/ProfileHistoryPage/ProfileHistoryPage'))
 // import CreateReservationPage from './pages/CreateReservationPage/CreateReservationPage';
 const CreateReservationPage = React.lazy(() => import('./pages/CreateReservationPage/CreateReservationPage'))
 // import LoginPage from './pages/LoginPage/LoginPage';
