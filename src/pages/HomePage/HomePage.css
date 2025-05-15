@@ -292,6 +292,7 @@ body {
     border-radius: 5px;
     border: 0.5px solid #b8a890;
     color: #b8a890;
+    cursor: pointer;
 }
 
 .navigation__info-first:hover{

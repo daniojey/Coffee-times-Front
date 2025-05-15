@@ -102,19 +102,19 @@ function HomePage() {
             <div className='navigation-block'>
                 <p className='navigation-block-title'>Бронювання столиків легко та зручно</p>
 
-                <div className="navigation-block__map" onClick={(e) => handleClickLink(e, 'map')}>
+                <div data-testid="navigation-block__map" className="navigation-block__map" onClick={(e) => handleClickLink(e, 'map')}>
                     <p className='map-title'>Знайти на мапі</p>
                     <DynamicPngIcon iconName="mapIntro" className="map-intro"/>
                     <DynamicPngIcon iconName="mapIcon" className="mark-map" />
                 </div>
 
-                <div className="navigation-block__info" onClick={(e) => handleClickLink(e, 'search')}>
-                    <div className="navigation__info-first" data-url="">
+                <div className="navigation-block__info" >
+                    <div data-testid="navigation__info-first" className="navigation__info-first" onClick={(e) => handleClickLink(e, 'search')} data-url="">
                         <DynamicPngIcon iconName="searchIcon" className="navigation__info-search-img"/>
                         <p>Пошук бронювання</p>
                     </div>
 
-                    <div className="navigation__info-second" onClick={(e) => {
+                    <div data-testid="navigation__info-second" className="navigation__info-second" onClick={(e) => {
                                     e.stopPropagation(); // Важная строка!
                                     handleClickLink(e, 'create');
                                     }}>

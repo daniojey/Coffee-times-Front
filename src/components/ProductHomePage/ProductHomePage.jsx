@@ -8,21 +8,6 @@ import './ProductHomePage.css';
 function ProductHomePage({ data }) {
     const { image_url, name, description, price } = data;
 
-    // useEffect(() => {
-    //     const getImage = async () => {
-    //         try {
-    //             const response = await axios.get(imageUrl);
-    //             setImage(imageUrl);
-    //             console.log(response.data);
-    //         } catch (error) {
-    //             console.error(error);
-    //         }
-    //     }
-
-    //     getImage();
-    // }, [])
-
-
     return (
         <div className='slide-item'>
             {/* <DynamicImages imageUrl={image_url}/> */}
