@@ -95,14 +95,14 @@ function SearchReservationPage() {
                     <div className="checkbox-block">
                         <div className="checkbox-label">
                             <label>Актуальные</label>
-                            <input className="actual-reservation-checkbox" type="checkbox" id="checkbox" onChange={(e) => setActual(!actual)}/>
+                            <input data-testid="checkbox-actual" className="actual-reservation-checkbox" type="checkbox" id="checkbox" onChange={(e) => setActual(!actual)}/>
                         </div>
 
                     </div>
 
                     <form id="phone-search-form" onSubmit={handleSubmit}>
                         <input type="text" id="phone" placeholder="Enter number.." className="search-input" onChange={(e) => setPhone(e.target.value)}/>
-                        <button id="search-button" className="search-button" type="submit">Search</button>
+                        <button id="search-button" className="search-button" type="submit" name="search">Search</button>
                     </form>
                 </div>
                     
