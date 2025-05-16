@@ -36,7 +36,7 @@ function ProfilePage() {
             <div className="profile-block__left-side">
                 <div className="profile-info-block">
                     <h2 className="profile-titles">Профіль</h2> 
-                    {user && <button onClick={logout} className="profile-logout-btn">Выйти</button>}
+                    {user && <button data-testid="logout-btn" onClick={logout} className="profile-logout-btn">Выйти</button>}
                 </div>
 
                 <div className="actual-reservations-block">
@@ -68,7 +68,7 @@ function ProfilePage() {
                         ))
                     )}
 
-                    <button className="reservation-history-btn" onClick={handleHistoryButton}>Історія бронювань</button>
+                    <button className="reservation-history-btn" data-testid="reservation-history-btn" onClick={handleHistoryButton}>Історія бронювань</button>
                 </div>
             </div>
 
