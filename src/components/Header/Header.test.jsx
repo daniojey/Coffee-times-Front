@@ -49,7 +49,6 @@ describe('Компонент навигации', () => {
 
   test('Тестируем наличие ссылок при указанном пользователе',async () => {
     render(<Wrapper />);
-    screen.debug();
 
     expect(screen.getAllByText('Меню')).toHaveLength(2); 
     expect(screen.getAllByText("Мапа кав'ярень")).toHaveLength(2); 

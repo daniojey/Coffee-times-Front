@@ -44,7 +44,7 @@ function reducerFunc( state, action ) {
             return {...state, times: action.payload};
 
         case ACTIONS.SET_DURATION:
-            return {...state, duration: action.payload};
+            return {...state, duration: action.payload || []};
 
         case ACTIONS.SET_TABLES:
             return {...state, tables: action.payload};
@@ -107,7 +107,7 @@ function CreateReservationPage() {
     useEffect(() => {
 
 
-        if (coffeehouseInput && dateInput) {
+        if (coffeehouseInput && dateInput && state.times.length <= 0) {
             const fetchTimes = async () => {
                 try {
                     const response = await api.get(`/orders/reservation/get-available-times/?date=${dateInput}&coffeehouse=${coffeehouseInput}`)
@@ -124,7 +124,7 @@ function CreateReservationPage() {
         }
 
 
-        if (coffeehouseInput && dateInput && timeInput) {
+        if (coffeehouseInput && dateInput && timeInput && state.duration.length <= 0) {
             const fetchDuration = async () => {
                 try {
                     await fetchCSRFToken()
@@ -196,6 +196,13 @@ function CreateReservationPage() {
 
 
     const handleSumbmit =  async (e) => {
+        console.log('Проверка перед отправкой:', {
+        coffeehouseInput,
+        dateInput,
+        timeInput,
+        durationInput,
+        tableInput,
+        });
         e.preventDefault();
 
         if (coffeehouseInput && dateInput && timeInput && durationInput && tableInput) {
@@ -223,7 +230,7 @@ function CreateReservationPage() {
                 navigation('/')
             }
         } else {
-            console.log('Не хватает данный', coffeehouseInput, dateInput, timeInput, durationInput, tableInput)
+            console.error('Не хватает данный', coffeehouseInput, dateInput, timeInput, durationInput, tableInput)
         }
        
         console.log('Отправка формы, по идее..')
@@ -236,13 +243,14 @@ function CreateReservationPage() {
             <div className="form-content" >
                 <h2 className="form-title">Створення бронювання</h2>
 
-                <form id="reservation-form" className="form-create-body" onSubmit={handleSumbmit}>
+                <form data-testid="form-data" id="reservation-form" className="form-create-body" onSubmit={handleSumbmit}>
                     {!user && (
                         <>
                         <div className="form-field">
                             <label>І'мя</label> 
                             <input 
                             type="text" 
+                            data-testid="customer_name"
                             name="customer_name"
                             placeholder="Введіть ім'я" 
                             id="customer_phone" 
@@ -256,6 +264,7 @@ function CreateReservationPage() {
                             <label>Номер телефону</label> 
                             <input 
                             type="text" 
+                            data-testid="customer_phone"
                             name="customer_phone" 
                             placeholder="380xxxxxxxxx" 
                             id="customer_phone" 
@@ -273,6 +282,7 @@ function CreateReservationPage() {
                         <label>Кав'ярня</label> 
                         <select 
                         name="coffeehouse" 
+                        data-testid="coffeehouse"
                         id="coffeehouse" 
                         className="custom-select" 
                         value={initialCoffeehouse ? initialCoffeehouse : ''}
@@ -292,6 +302,7 @@ function CreateReservationPage() {
                         <label>Дата</label>  
                         <input 
                         type="date" 
+                        data-testid="date"
                         name="reservation_date" 
                         id="reservation_date" 
                         className="date-reservation-input" 
@@ -307,6 +318,7 @@ function CreateReservationPage() {
                         <label>Час бронювання</label> 
                         <select 
                         name="reservation_time" 
+                        data-testid="reservation_time"
                         id="reservation_time" 
                         onChange={(e) => setTimeInput(e.target.value)}
                         className="time-input">
@@ -348,6 +360,7 @@ function CreateReservationPage() {
                         <label>Продовжуваність</label> 
                         <select 
                         name="booking_duration" 
+                        data-testid="booking_duration"
                         id="booking_duration"
                         onChange={(e) => setDurationInput(e.target.value)} 
                         className="time-input">
@@ -364,6 +377,7 @@ function CreateReservationPage() {
                             <label htmlFor="available_tables">Оберіть столик</label>
                             <select 
                             name="table" 
+                            data-testid="table"
                             id="available_tables" 
                             className="custom-table" 
                             onChange={(e) => setTableInput(e.target.value)}
@@ -377,7 +391,7 @@ function CreateReservationPage() {
                     
 
                     <div className='button-reservation-container'>
-                        <button type='submit' className='submit-reservation-btn'>Зберегти</button>
+                        <button form="reservation-form" data-testid="submit-btn" type='submit' className='submit-reservation-btn'>Зберегти</button>
                     </div>
                 </form>
             </div>
