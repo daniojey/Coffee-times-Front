@@ -221,6 +221,7 @@ function ProfileHistoryPage() {
                         
                         <label htmlFor="is_active">
                             <input 
+                            data-testid="is_active"
                             type="checkbox" 
                             name="is_active" 
                             value="true" 
@@ -230,6 +231,7 @@ function ProfileHistoryPage() {
                         
                         <label htmlFor="is_cafe">
                             <input 
+                            data-testid="is_cafe"
                             type="checkbox" 
                             name="is_cafe" 
                             value="true"
@@ -238,13 +240,13 @@ function ProfileHistoryPage() {
                         </label>
                         
                         <label htmlFor="sort_by">Сортувати по:</label>
-                        <select name="sort_by" onChange={(e) => dispatch({ type: ACTIONS.SET_SORT_BY, payload: e.target.value })}>
+                        <select data-testid="sortby" name="sort_by" onChange={(e) => dispatch({ type: ACTIONS.SET_SORT_BY, payload: e.target.value })}>
                             <option value="default" >по замовчуванню</option>
                             <option value="date" >Дата</option>
                             <option value="time" >Час</option>
                         </select>
                         
-                        <button type="submit" className='filter-history-button'>Застосувати</button>
+                        <button data-testid="submit-btn" type="submit" className='filter-history-button'>Застосувати</button>
                     </form>
                 </div>
 

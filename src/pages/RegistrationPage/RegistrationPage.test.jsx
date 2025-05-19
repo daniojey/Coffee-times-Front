@@ -1,5 +1,5 @@
 // RegistrationPage.test.jsx
-import { describe, test, expect, vi, beforeEach } from 'vitest';
+import { describe, test, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import { MemoryRouter, Routes, Route } from 'react-router-dom';
 import RegistrationPage from './RegistrationPage.jsx';
@@ -33,8 +33,14 @@ vi.mock('react-router-dom',async () => ({
 describe('RegisrationPage', () => {
 
     beforeEach(() => {
-        vi.clearAllMocks();
+        vi.spyOn(window, 'alert').mockImplementation(() => {});
+        
     });
+
+    afterEach(() => {
+        vi.clearAllMocks();
+    })
+
 
 
     const renderWithContext = (context = AuthContextMock) => {

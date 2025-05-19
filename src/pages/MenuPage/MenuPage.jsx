@@ -91,6 +91,7 @@ function MenuPage() {
         if (category) params.set('category', category);
 
         const queryString = params.toString();
+        console.log('URL Странички меню', queryString);
         return queryString ? `${baseUrl}?${queryString}` : baseUrl;
     };
 
@@ -196,7 +197,7 @@ function MenuPage() {
                         
                         <div className='form-section'>
                             <label htmlFor="category">Категорія:</label>
-                            <select id="category" name="category" onChange={(e) => setCategoryInput(e.target.value)}>
+                            <select data-testid="category" id="category" name="category" onChange={(e) => setCategoryInput(e.target.value)}>
                                 <option value="">Усі</option>
                                 <option value="Кава" defaultChecked>Кава</option>
                                 <option value="Десерти">Десерты</option>
@@ -206,7 +207,7 @@ function MenuPage() {
                         </div>
                     </div>
                     
-                    <button type="submit" className='menu-filter-btn'>Пошук</button>
+                    <button type="submit" className='menu-filter-btn' data-testid="filter-btn">Пошук</button>
                 </form>
             </div>
 
