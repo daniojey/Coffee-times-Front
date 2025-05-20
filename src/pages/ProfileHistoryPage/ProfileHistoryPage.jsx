@@ -123,7 +123,7 @@ function ProfileHistoryPage() {
         
 
         const queryString = params.toString();
-        console.log(queryString)
+        // console.log(queryString)
         return queryString ? `${baseUrl}?${queryString}` : baseUrl;
     }
 
@@ -133,7 +133,7 @@ function ProfileHistoryPage() {
 
         try {
             const response = await api.get(url, { withCredentials: true });
-            console.log(response.data)
+            // console.log(response.data)
 
             dispatch({ type: ACTIONS.SUCCESS , payload: response.data});
 

@@ -112,7 +112,6 @@ describe('Тест MenuPage', () => {
             // Проверяем наличие двух страниц в пагинации
             expect(screen.getByText('1')).toBeInTheDocument();
             expect(screen.getByText('2')).toBeInTheDocument();
-            screen.debug();
         });
     });
 

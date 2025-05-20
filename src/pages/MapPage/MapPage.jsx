@@ -18,9 +18,10 @@ import { api } from "../../../api";
 // Компонент для управления картой (flyTo, openPopup)
 function MapController({ markerRef, flyToId }) {
     const map = useMap();
-    
+
     useEffect(() => {
       if (flyToId !== null && markerRef.current[flyToId]) {
+        console.log('Полёт к маркеру на', flyToId)
         const marker = markerRef.current[flyToId];
         const position = marker.getLatLng();
         
@@ -70,11 +71,13 @@ function MapPage() {
         if (marker && !markerRef.current[id]) {
             // console.log('Установка маркера с ID:', id);
             markerRef.current[id] = marker;
+            console.log('Создается маркер с данными', id);
         }
     }, []);
 
 
     const handleMarkerButtonClick = (id) => {
+        console.log('FLY to', id);
         setFlyToId(id);
     };
 
@@ -106,7 +109,7 @@ function MapPage() {
                     <h3>Пошук Кав'ярні</h3>
                     <form id="map-search-form" onSubmit={filteredCoffeehouses}>
                         <input type="text" name="address-coffeehouse" id="search-coffeehouse" placeholder="Введіть адрессу кав'ярні" onChange={(e) => setSearchInput(e.target.value)}/>
-                        <button id="search-button" type="submit">Пошук</button>
+                        <button data-testid="submit-btn" id="search-button" type="submit">Пошук</button>
                     </form>
                 </div>
 
@@ -115,8 +118,8 @@ function MapPage() {
                     <h3 className="search-coffeehouses-title">Результати пошуку</h3>
 
                     { searchCoffeehouses && (
-                        searchCoffeehouses?.map(house => (
-                            <div className="recomend-item" key={house.id} data-id={house.id} onClick={() => handleMarkerButtonClick(house.id)}>
+                        searchCoffeehouses?.map((house, index) => (
+                            <div className="recomend-item" key={house.id} data-testid={`${index}-house ${house.id}`} data-id={house.id} onClick={() => handleMarkerButtonClick(house.id)}>
 
                                 <div className="recomend-item__img">
                                     <img src={house.image_url} alt="Кав'ярня " id='coffeehouse-image'/>
