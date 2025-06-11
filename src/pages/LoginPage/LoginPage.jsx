@@ -14,6 +14,16 @@ function LoginPage() {
     const { login, error } = useContext(AuthContext);
     const navigate = useNavigate();
 
+    // const smartRegister = (name) => ({
+    //     ...register(name),
+    //     onBlur: async (e) => {
+    //         console.log(e.target.value)
+    //     },
+    //     onChange: async (e) => {
+    //         console.log(e.target.value)
+    //     }
+    // })
+
     const schema = yup.object().shape({
         username: yup
             .string()
