@@ -15,7 +15,11 @@ function ProfilePage() {
     useEffect(() => {
         const fetchReservations = async () => {
             try {
-                const response = await api.get('/api/v1/user_profile/', {withCredentials:true})
+                const response = await api.get('/api/v1/user_profile/', {
+                    headers: {
+                        "Authorization": `Bearer ${localStorage.getItem('accessToken')}`
+                    },
+                })
 
                 setReservations(response.data?.reservations)
                 setActualReservation(response.data?.actual_reservations)

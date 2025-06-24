@@ -132,7 +132,12 @@ function ProfileHistoryPage() {
         dispatch({ type: ACTIONS.LOADING })
 
         try {
-            const response = await api.get(url, { withCredentials: true });
+            const response = await api.get(url, { 
+                withCredentials: true,
+                headers: {
+                    "Authorization": `Bearer ${localStorage.getItem('accessToken')}`
+                } 
+            });
             // console.log(response.data)
 
             dispatch({ type: ACTIONS.SUCCESS , payload: response.data});

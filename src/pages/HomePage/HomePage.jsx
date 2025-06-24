@@ -75,8 +75,8 @@ function HomePage() {
                     speed={1200}
                     navigation
                     scrollbar={{ draggable: true }}
-                    onSwiper={(swiper) => console.log(swiper)}
-                    onSlideChange={() => console.log('slide change')}
+                    // onSwiper={(swiper) => console.log(swiper)}
+                    // onSlideChange={() => console.log('slide change')}
                     style={{ 
                         padding: '0 15px', // Добавляем отступы вместо margin
                         boxSizing: 'border-box' // Важно для правильного расчета ширины

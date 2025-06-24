@@ -218,9 +218,9 @@ function CreateReservationPage() {
                 booking_duration: durationInput,
             },
             {
-                withCredentials: true,
                 headers: {
                     'X-CSRFToken': getCSRFTokenFromCookie(),
+                    "Authorization": `Bearer ${localStorage.getItem('accessToken')}`
                 }
             }
             )

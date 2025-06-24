@@ -4,10 +4,12 @@ import { Navigate } from 'react-router-dom';
 import { AuthContext } from './AuthContext';
 
 const ProtectedRoute = ({ children }) => {
-    const { user, isLoading , authChecked} = useContext(AuthContext);
+    const { user, loading , authChecked} = useContext(AuthContext);
+    console.log(user)
+    console.log(authChecked)
 
-    if (isLoading) {
-        return <div>Проверка авторизации...</div>;
+    if (loading) {
+        return <div class='protected-loading-container'>Проверка авторизации...</div>;
     }
 
     if (!user && authChecked) {

@@ -11,7 +11,7 @@ import "./LoginPage.css";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 function LoginPage() {
-    const { login, error } = useContext(AuthContext);
+    const { login, error} = useContext(AuthContext);
     const navigate = useNavigate();
 
     // const smartRegister = (name) => ({
@@ -51,12 +51,13 @@ function LoginPage() {
     )
 
     const onSubmit = async (data) => {
-        console.log("Данные", data);
+        // console.log("Данные", data);
 
         const success = await login(data["username"], data["password"]);
 
         if (success) {
             console.log('Login successful!');
+
             navigate('/');
 
         } else {
