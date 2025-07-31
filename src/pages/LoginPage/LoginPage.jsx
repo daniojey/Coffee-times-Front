@@ -9,9 +9,10 @@ import GoggleIcon from "../../components/UI/icons/GoggleIcon/GoggleIcon";
 
 import "./LoginPage.css";
 import { yupResolver } from "@hookform/resolvers/yup";
+import Message from "../../components/Message/Message";
 
 function LoginPage() {
-    const { login, error} = useContext(AuthContext);
+    const { login, error } = useContext(AuthContext);
     const navigate = useNavigate();
 
     // const smartRegister = (name) => ({
@@ -95,6 +96,15 @@ function LoginPage() {
 
     return (
         <div className='base-container'>
+
+            {error && (
+                console.log('Ошибка входа, пересмотрите проблему',error)
+            )}
+
+            {error && (
+                <Message text={error.message}></Message>
+            )}
+
             <div className='form-login-container'>
                 <form onSubmit={handleSubmit(onSubmit)} className="login-form" aria-label="Login form">
                     <h3>Welcome Back!</h3>
