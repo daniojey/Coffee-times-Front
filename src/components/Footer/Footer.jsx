@@ -28,7 +28,7 @@ function Footer() {
                     <a href="https://t.me/Saymios">Telegram</a> */}
                 </div>
                 <div className='footer-content-container'>
-                    <p>2024 Все права защищены</p>
+                    <p>2025 Усі права захищені</p>
                 </div>
             </div>
         </footer>
